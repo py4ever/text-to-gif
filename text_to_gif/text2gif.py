@@ -7,6 +7,7 @@
 # @File : text-to-gif.py
 # @Project : text-to-gif
 import locale
+import math
 import os
 import time
 import logging
@@ -35,7 +36,7 @@ def transform_text_to_gif(lines, frame_size: int,
                           gif_dest: str, verbose: bool,
                           duration: float = 0.6):
     total_line = len(lines)
-    img_line = int(total_line / frame_size)
+    img_line = math.floor(total_line / frame_size)
     if total_line % frame_size != 0:
         img_line += 1
     with TemporaryDirectory(prefix=".text_capture", suffix=".png",
