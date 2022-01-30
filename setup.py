@@ -2,7 +2,7 @@ from distutils.core import setup
 from setuptools import find_packages
 
 setup(name='text-to-gif',
-      version='0.0.1',
+      version='0.0.2',
       keywords=("t2g", "text-to-gif", "text2gif", "levin", "leixuewei"),
       description='A small tool to generate text as gif, animation',
       long_description="Powered by py4ever team!",

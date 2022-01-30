@@ -17,12 +17,16 @@ t2g(text-to-gif) 支持开发者把文本转化为gif进行动态播放。
 
 Package hosted on [`pypi`_] and powered by [`pypi-seed`_]
 
+
 Installation / 安装
 --------------------------
 
 ::
 
     pip install text-to-gif
+
+
+
 
 Quick start / 使用
 --------------------------
@@ -32,6 +36,7 @@ Quick start / 使用
 ::
 
     t2g -p /Users/mac/PycharmProjects/hello/xuewei_pypi_blog.txt -d ./blog.gif -f 5
+
 
 
 More Info
