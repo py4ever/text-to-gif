@@ -53,7 +53,7 @@ def transform_text_to_gif(lines, frame_size: int,
             diag = ImageDraw.Draw(img)
             location = (10, 10)
             font = font_support_chinese()
-            diag.text(location, '#Powered by CodeGif - p' + str(i + 1), fill=TEXT_COLOR_WHITE, font=font)
+            diag.text(location, '#Powered by text-to-gif - p' + str(i + 1), fill=TEXT_COLOR_WHITE, font=font)
             page_data = lines[img_line * i:img_line * (i + 1)] if i != frame_size - 1 else lines[img_line * i:]
             for line in page_data:
                 counter += 1
@@ -64,7 +64,7 @@ def transform_text_to_gif(lines, frame_size: int,
         image_list = filter_and_sort(tmpdir)
         gif_file_path = os.path.join(os.getcwd(), gif_dest)
         create_gif(image_list, gif_file_path, duration)
-        print("verbose:%s" % verbose)
+        #print("verbose:%s" % verbose)
         if verbose:
             print("gif created at %s" % gif_file_path)
 

@@ -25,10 +25,13 @@ def main():
     parser.add_argument('--verbose', '-v', default=False, help="show more verbose info")
     args = parser.parse_args()
     long_text_path = args.path
-    frame_size = args.frame
+    frame_size = int(args.frame)
+    if frame_size <= 0:
+        print("Invalid frame size(should be at least 1 or more.")
+        return
     dest = args.destination
     verbose = args.verbose
-    text2gif(long_text_path, frame_size, dest,verbose)
+    text2gif(long_text_path, frame_size, dest, verbose)
 
 
 if __name__ == '__main__':

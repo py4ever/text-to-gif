@@ -1,0 +1,20 @@
+~/python/text-to-gif master !2 > t2g -h                                                                                                     py text-to-gif
+usage: t2g [-h] [--path PATH] [--destination DESTINATION] [--frame FRAME] [--verbose VERBOSE]
+
+Please provide parameter to call t2g(text-to-gif)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --path PATH, -p PATH  tell t2g where is the (long)text file path
+  --destination DESTINATION, -d DESTINATION
+                        tell t2g where to store the output gif
+  --frame FRAME, -f FRAME
+                        tell t2g how many frame to structure the long text into multi-frame in output gif
+  --verbose VERBOSE, -v VERBOSE
+                        show more verbose info
+~/python/text-to-gif master !2 >                                                                                                            py text-to-gif
+~/python/text-to-gif master !2 > t2g -p /Users/mac/PycharmProjects/hello/xuewei_pypi_blog.txt -d ./blog.gif -f 5                            py text-to-gif
+total_line  <class 'int'>
+frame_size  <class 'int'>
+verbose:False
+~/python/text-to-gif master !2 ?1 >
