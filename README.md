@@ -8,6 +8,14 @@ So I developed this.
 
 It can help me to create gif with code execution result if I don't have change to upload the live-running video.
 
+
+t2g(text-to-gif) 支持开发者把文本转化为gif进行动态播放。
+
+学委写了很多文章都是贴静态图的，今年改进一下，发现市场没有这样的。所以用python写了一个小工具。
+
+支持把 文本/代码 转化为gif 动态展示。
+
+
 Powered by [pypi-seed](https://pypi.org/project/pypi-seed/)
 
 
