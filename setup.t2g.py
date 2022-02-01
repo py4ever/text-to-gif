@@ -2,7 +2,7 @@ import os
 # from distutils.core import setup
 from setuptools import setup
 from setuptools import find_packages
-from text_to_gif.setting import VERSION,NAME
+from text_to_gif.setting import VERSION, OTHER_NAME
 
 # README_RST = os.path.join(os.getcwd(), "README.rst")
 # with open(README_RST, 'r') as rfile:
@@ -10,7 +10,7 @@ from text_to_gif.setting import VERSION,NAME
 with open("README.md", "r", encoding="utf-8") as f:
     LONG_DESCRIPTION = f.read()
 
-setup(name=NAME,
+setup(name=OTHER_NAME,
       version=VERSION,
       keywords=("t2g", "text-to-gif", "text2gif", "levin", "leixuewei"),
       description='A small tool to generate text as gif, animation',
