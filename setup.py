@@ -1,14 +1,21 @@
+import os
 from distutils.core import setup
 from setuptools import find_packages
 
+
+
+README_RST = os.path.join(os.getcwd(), "README.rst")
+with open(README_RST, 'r') as rfile:
+    LONG_DESCRIPTION = rfile.read()
+
 setup(name='text-to-gif',
-      version='0.0.2',
+      version='0.0.3b',
       keywords=("t2g", "text-to-gif", "text2gif", "levin", "leixuewei"),
       description='A small tool to generate text as gif, animation',
-      long_description="Powered by py4ever team!",
+      long_description=LONG_DESCRIPTION,
       author='levin',
       author_email='levinmhliu@gmail.com',
-      install_requires=[],
+      install_requires=["pillow","imageio"],
       license='Apache License 2.0',
       packages=find_packages(),
       platforms=["all"],

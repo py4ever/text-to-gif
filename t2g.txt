@@ -1,4 +1,13 @@
-~/python/text-to-gif master !2 > t2g -h                                                                                                     py text-to-gif
+levin > pip install text-to-gif
+
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+ Collecting text-to-gif
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/34/bc/bc0ccaba2b6b68401198d39a68d276ce78c6dc6adc8a0e5b3d8027b8d24e/text_to_gif-0.0.2-py2.py3-none-any.whl (5.6 kB)
+ Installing collected packages: text-to-gif
+ Successfully installed text-to-gif-0.0.2
+
+
+levin > t2g -h                                                                                                     py text-to-gif
 usage: t2g [-h] [--path PATH] [--destination DESTINATION] [--frame FRAME] [--verbose VERBOSE]
 
 Please provide parameter to call t2g(text-to-gif)
@@ -12,9 +21,11 @@ optional arguments:
                         tell t2g how many frame to structure the long text into multi-frame in output gif
   --verbose VERBOSE, -v VERBOSE
                         show more verbose info
-~/python/text-to-gif master !2 >                                                                                                            py text-to-gif
-~/python/text-to-gif master !2 > t2g -p /Users/mac/PycharmProjects/hello/xuewei_pypi_blog.txt -d ./blog.gif -f 5                            py text-to-gif
-total_line  <class 'int'>
-frame_size  <class 'int'>
-verbose:False
-~/python/text-to-gif master !2 ?1 >
+
+levin >                                                                                                            py text-to-gif
+levin >  # no verbose info
+levin >  t2g -p /Users/mac/PycharmProjects/hello/xuewei_pypi_blog.txt -d ./blog.gif -f 5
+levin >                                                                                                            py text-to-gif
+levin >  t2g -p /Users/mac/PycharmProjects/hello/xuewei_pypi_blog.txt -d ./blog.gif -f 5 -v                      py text-to-gif
+text file:/Users/mac/PycharmProjects/hello/xuewei_pypi_blog.txt, frame:5, destination:./blog.gif
+gif created at /Users/mac/python/text-to-gif/./blog.gif

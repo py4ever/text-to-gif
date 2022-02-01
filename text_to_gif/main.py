@@ -20,17 +20,19 @@ def main():
         description="Please provide parameter to call t2g(text-to-gif)")
     parser.add_argument('--path', '-p', default="userInput.txt", help="tell t2g where is the (long)text file path")
     parser.add_argument('--destination', '-d', default="text2gif.gif", help="tell t2g where to store the output gif")
-    parser.add_argument('--frame', '-f', default=3,
+    parser.add_argument('--frame', '-f', default=3, type=int,
                         help="tell t2g how many frame to structure the long text into multi-frame in output gif")
-    parser.add_argument('--verbose', '-v', default=False, help="show more verbose info")
+    parser.add_argument('--verbose', '-v', action='store_const', const=True, help="show more verbose info(optional)")
     args = parser.parse_args()
     long_text_path = args.path
-    frame_size = int(args.frame)
+    frame_size = args.frame
     if frame_size <= 0:
         print("Invalid frame size(should be at least 1 or more.")
         return
     dest = args.destination
     verbose = args.verbose
+    if verbose is None:
+        verbose = False
     text2gif(long_text_path, frame_size, dest, verbose)
 
 
