@@ -12,7 +12,7 @@ with open("README.md", "r", encoding="utf-8") as f:
     LONG_DESCRIPTION = f.read()
 
 setup(name='text-to-gif',
-      version='0.0.4f',
+      version='0.0.5',
       keywords=("t2g", "text-to-gif", "text2gif", "levin", "leixuewei"),
       description='A small tool to generate text as gif, animation',
       long_description=LONG_DESCRIPTION,

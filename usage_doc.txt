@@ -1,0 +1,42 @@
+LeiXueWei > pip install text-to-gif
+
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+ Collecting text-to-gif
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/34/bc/bc0ccaba2b6b68401198d39a68d276ce78c6dc6adc8a0e5b3d8027b8d24e/text_to_gif-0.0.2-py2.py3-none-any.whl (5.6 kB)
+ Installing collected packages: text-to-gif
+ Successfully installed text-to-gif-0.0.2
+
+
+LeiXueWei > t2g -h                                                                                                     py text-to-gif
+usage: t2g [-h] [--input INPUT] [--output OUTPUT] [--duration DURATION] [--frame FRAME] [--verbose]
+
+Please provide parameter to call t2g(text-to-gif)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --input INPUT, -i INPUT
+                        tell t2g where is the (long)text input file path, default is 't2g.txt'
+  --output OUTPUT, -o OUTPUT
+                        tell t2g where to store the output gif
+  --duration DURATION, -d DURATION
+                        the duration of output gif, 0.66 as default
+  --frame FRAME, -f FRAME
+                        tell t2g how many frame to structure the long text into multi-frame in output gif, 3 as default
+  --verbose, -v         show more verbose info(optional)
+
+
+LeiXueWei > # if have a 'input.txt' on current dir
+LeiXueWei > t2g #will generate text2gif.gif file on current dir with default options
+LeiXueWei >
+LeiXueWei > t2g -v
+input:usage_doc.txt, output:usage_doc.gif with frame:3 duration 0.66
+text file:usage_doc.txt, frame:3, destination:usage_doc.gif
+gif created at /Users/mac/python/text-to-gif/usage_doc.gif
+LeiXueWei >
+LeiXueWei >  # no verbose info
+LeiXueWei >  t2g -i /Users/mac/PycharmProjects/hello/xuewei_pypi_blog.txt -o ./blog.gif -f 5
+LeiXueWei >                                                                                                            py text-to-gif
+LeiXueWei >  t2g -i /Users/mac/PycharmProjects/hello/xuewei_pypi_blog.txt -o ./blog.gif -f 5 -v                   py text-to-gif
+input:/Users/mac/PycharmProjects/hello/xuewei_pypi_blog.txt, output:./blog.gif with frame:5 duration 0.66
+text file:/Users/mac/PycharmProjects/hello/xuewei_pypi_blog.txt, frame:5, destination:./blog.gif
+gif created at /Users/mac/python/text-to-gif/./blog.gif

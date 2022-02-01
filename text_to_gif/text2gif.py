@@ -64,12 +64,15 @@ def transform_text_to_gif(lines, frame_size: int,
         image_list = filter_and_sort(tmpdir)
         gif_file_path = os.path.join(os.getcwd(), gif_dest)
         create_gif(image_list, gif_file_path, duration)
-        #print("verbose:%s" % verbose)
+        # print("verbose:%s" % verbose)
         if verbose:
             print("gif created at %s" % gif_file_path)
 
 
-def text2gif(long_text_path: str, frame_size: int = 3, gif_dest: str = "text2gif.gif", verbose: bool = False):
+def text2gif(long_text_path: str, frame_size: int = 3,
+             gif_dest: str = "text2gif.gif",
+             verbose: bool = False,
+             duration: float = 0.6):
     if verbose:
         print("text file:%s, frame:%s, destination:%s" % (long_text_path, frame_size, gif_dest))
     with open(long_text_path, 'r') as f:
@@ -80,9 +83,9 @@ def text2gif(long_text_path: str, frame_size: int = 3, gif_dest: str = "text2gif
                 max_line_text_len = len(line)
         if max_line_text_len > 160:
             max_line_text_len = 160
-        transform_text_to_gif(lines, frame_size, max_line_text_len, gif_dest, verbose)
+        transform_text_to_gif(lines, frame_size, max_line_text_len, gif_dest, verbose, duration)
 
 
 if __name__ == "__main__":
     text_path = "/Users/mac/PycharmProjects/cv2sample/images/input/leixuewei_sample.log"
-    text2gif(long_text_path=text_path, verbose=True)
+    text2gif(long_text_path=text_path, verbose=True,duration=2)
