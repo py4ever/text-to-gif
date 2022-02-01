@@ -32,7 +32,7 @@ Print the usage
 t2g -h
 ```
 
-![SoRunItLikeThis](usage_doc.gif)
+[![usage_doc.gif](https://raw.githubusercontent.com/py4ever/text-to-gif/master/usage_doc.gif)](https://github.com/py4ever/text-to-gif/tree/master/usage_doc)
 
 # Use text-to-gif as CLI / 命令行使用
 
