@@ -21,7 +21,6 @@ QQ交流：https://jq.qq.com/?_wv=1027&k=lYdDWNQc
 
 
 
-
 Installation / 安装
 --------------------------
 
@@ -64,3 +63,4 @@ Please raise PR or find the tencent group chat : `QQGroupChat`_
 .. _`链接文本`: https://your_site_link_here
 .. _`QQGroupChat`: https://jq.qq.com/?_wv=1027&k=ISjeG32x
 .. _`Python全栈技术学习交流`: https://jq.qq.com/?_wv=1027&k=ISjeG32x
+.. |usage_doc| image:: https://github.com/py4ever/text-to-gif/raw/master/blog.gif

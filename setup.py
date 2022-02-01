@@ -9,7 +9,7 @@ with open(README_RST, 'r') as rfile:
     LONG_DESCRIPTION = rfile.read()
 
 setup(name='text-to-gif',
-      version='0.0.3b',
+      version='0.0.4',
       keywords=("t2g", "text-to-gif", "text2gif", "levin", "leixuewei"),
       description='A small tool to generate text as gif, animation',
       long_description=LONG_DESCRIPTION,
