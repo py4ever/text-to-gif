@@ -36,6 +36,9 @@ Run with emoji in text file:
 
 [![demo_emoji.gif](https://raw.githubusercontent.com/py4ever/text-to-gif/master/demo_emoji.gif)](https://github.com/py4ever/text-to-gif/tree/master/demo_emoji)
 
+In case the above gif not rendering so well:
+
+![](usage_doc.gif)
 # Installation / 安装
 
 Get t2g by pip (通过PIP工具来安装text-to-gif)
