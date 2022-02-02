@@ -22,13 +22,24 @@ We can just run 't2g'.
 
 And it will generate text2gif.gif file on current dir with default options
 
+Powered by [pypi-seed](https://pypi.org/project/pypi-seed/)
+
+# Quickstart
+
+Usage doc generation:
+
 [![usage_doc.gif](https://raw.githubusercontent.com/py4ever/text-to-gif/master/usage_doc.gif)](https://github.com/py4ever/text-to-gif/tree/master/usage_doc)
 
-Powered by [pypi-seed](https://pypi.org/project/pypi-seed/)
+So any github user can use this tool to generate usage_doc.gif or specify your quick start doc as gif
+
+Run with emoji in text file:
+
+[![demo_emoji.gif](https://raw.githubusercontent.com/py4ever/text-to-gif/master/demo_emoji.gif)](https://github.com/py4ever/text-to-gif/tree/master/demo_emoji)
 
 # Installation / 安装
 
 Get t2g by pip (通过PIP工具来安装text-to-gif)
+
 ```bash
 pip install text-to-gif
 ```
@@ -61,4 +72,14 @@ The above command will generate below gif:
 [![blog.gif](https://raw.githubusercontent.com/py4ever/text-to-gif/master/blog.gif)](https://github.com/py4ever/text-to-gif/tree/master/blog)
 
 # More Info
-Author levin
+
+Author 雷学委
+
+## The features
+
+- support text file into gif file in multi frames within default/specific duration
+
+- support text file with emoji
+
+For this support, t2g uses [pilmoji](https://pypi.org/project/pilmoji) to handle emoji
+

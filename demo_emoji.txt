@@ -1,0 +1,12 @@
+/Users/mac/PycharmProjects/hello/venv/bin/python /Users/mac/PycharmProjects/hello/queuedemo/lifoqdemo.py
+学委给朋友们拜年了 ㊗️：三祝各位朋友们虎年大吉
+学委给朋友们拜年了 ㊗️：二祝各位朋友们身体健康
+wait....
+wait....
+wait....
+学委给朋友们拜年了 ㊗️：其他的祝福2
+学委给朋友们拜年了 ㊗️：其他的祝福3
+学委给朋友们拜年了 ㊗️：其他的祝福1
+学委给朋友们拜年了 ㊗️：一祝各位朋友们新年快乐
+
+Process finished with exit code 0

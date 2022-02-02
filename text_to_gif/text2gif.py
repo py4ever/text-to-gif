@@ -12,9 +12,12 @@ import os
 import time
 import logging
 from tempfile import NamedTemporaryFile, TemporaryDirectory
+from urllib.error import URLError
 
 from PIL import Image, ImageDraw, ImageFont
+from pilmoji import Pilmoji
 
+from text_to_gif.emoji_check import text_has_emoji, lines_has_emoji
 from text_to_gif.gif_creator import create_gif
 from text_to_gif.image_file_filter import filter_and_sort
 
@@ -31,11 +34,26 @@ def font_support_chinese():
         return ImageFont.load_default()
 
 
+def draw_normal_text(font, frame_size, page_index, img, img_line, lines):
+    diag = ImageDraw.Draw(img)
+    location = (10, 10)
+    diag.text(location, '#Powered by text-to-gif - p' + str(page_index + 1), fill=TEXT_COLOR_WHITE, font=font)
+    page_data = lines[img_line * page_index:img_line * (page_index + 1)] if page_index != frame_size - 1 else lines[
+                                                                                                              img_line * page_index:]
+    counter = 1
+    for line in page_data:
+        counter += 1
+        location = (10, 20 * counter)
+        diag.text(location, line, fill=TEXT_COLOR_WHITE, font=font)
+
+
 def transform_text_to_gif(lines, frame_size: int,
                           max_line_text_len: int,
                           gif_dest: str, verbose: bool,
                           duration: float = 0.6):
     total_line = len(lines)
+    if verbose and lines_has_emoji(lines):
+        logging.info("input text contains emoji")
     img_line = math.floor(total_line / frame_size)
     if total_line % frame_size != 0:
         img_line += 1
@@ -44,21 +62,20 @@ def transform_text_to_gif(lines, frame_size: int,
         logging.debug("tmp dir:%s", tmpdir)
         for i in range(frame_size):
             final_img_path = os.path.join(tmpdir, "pic" + str(i)) + ".png"
-            counter = 1
             height = int(total_line / frame_size * 25)
             height = 300 if height < 300 else height
             width = int(max_line_text_len * 10)
             img_size = (width, height)
-            img = Image.new('RGB', img_size)
-            diag = ImageDraw.Draw(img)
-            location = (10, 10)
             font = font_support_chinese()
-            diag.text(location, '#Powered by text-to-gif - p' + str(i + 1), fill=TEXT_COLOR_WHITE, font=font)
-            page_data = lines[img_line * i:img_line * (i + 1)] if i != frame_size - 1 else lines[img_line * i:]
-            for line in page_data:
-                counter += 1
-                location = (10, 20 * counter)
-                diag.text(location, line, fill=TEXT_COLOR_WHITE, font=font)
+            img = Image.new('RGB', img_size)
+            if lines_has_emoji(lines):
+                try:
+                    draw_text_with_emoji_support(font, frame_size, i, img, img_line, lines)
+                except URLError as err:
+                    logging.warning("probably network issue, err:%s", err)
+                    draw_normal_text(font, frame_size, i, img, img_line, lines)
+            else:
+                draw_normal_text(font, frame_size, i, img, img_line, lines)
             logging.debug("will save img : %s", final_img_path)
             img.save(final_img_path)
         image_list = filter_and_sort(tmpdir)
@@ -67,6 +84,23 @@ def transform_text_to_gif(lines, frame_size: int,
         # print("verbose:%s" % verbose)
         if verbose:
             print("gif created at %s" % gif_file_path)
+
+
+def draw_text_with_emoji_support(font, frame_size, i, img, img_line, lines):
+    do_ssl_check = os.environ['T2G_DO_SSL_CHECK'] if 'T2G_DO_SSL_CHECK' in os.environ else False
+    if not do_ssl_check:
+        # urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate
+        import ssl
+        ssl._create_default_https_context = ssl._create_unverified_context
+    with Pilmoji(img) as pilmoji:
+        location = (10, 10)
+        counter = 1
+        pilmoji.text(location, '#Powered by text-to-gif - p' + str(i + 1), fill=TEXT_COLOR_WHITE, font=font)
+        page_data = lines[img_line * i:img_line * (i + 1)] if i != frame_size - 1 else lines[img_line * i:]
+        for line in page_data:
+            counter += 1
+            location = (10, 20 * counter)
+            pilmoji.text(location, line, fill=TEXT_COLOR_WHITE, font=font)
 
 
 def text2gif(long_text_path: str, frame_size: int = 3,
@@ -88,4 +122,6 @@ def text2gif(long_text_path: str, frame_size: int = 3,
 
 if __name__ == "__main__":
     text_path = "/Users/mac/PycharmProjects/cv2sample/images/input/leixuewei_sample.log"
-    text2gif(long_text_path=text_path, verbose=True,duration=2)
+    text_path = "/Users/mac/python/text-to-gif/demo_emoji.txt"
+    text2gif(long_text_path=text_path, verbose=True, duration=2)
+    # text2gif(long_text_path=text_path, verbose=False, duration=1.5)

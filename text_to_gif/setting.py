@@ -13,5 +13,5 @@ import os
 NAME = "text-to-gif"
 OTHER_NAME = "t2g"
 # Change the version everytime when a upload to pypi to issue a new version
-VERSION = "0.0.7"
+VERSION = "0.0.8"
 

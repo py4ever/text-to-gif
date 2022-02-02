@@ -15,6 +15,8 @@ import os
 
 from text_to_gif.text2gif import text2gif
 
+THE_DEFAULT_INPUTS = ["input.txt", "usage_doc.txt"]
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -34,7 +36,11 @@ def main():
     verbose = args.verbose
     if verbose is None:
         verbose = False
-    if not os.path.exists(long_text_path):
+    if long_text_path and long_text_path not in THE_DEFAULT_INPUTS:
+        # so current user has specific the input file and not in any default input
+        if not os.path.exists(long_text_path):
+            raise ValueError("The input file does not exist, path:" + long_text_path)
+    elif not os.path.exists(long_text_path):
         skip_usage_doc = os.environ['T2G_SKIP_USAGE_DOC'] if 'T2G_SKIP_USAGE_DOC' in os.environ else False
         try:
             skip_usage_doc = True if skip_usage_doc == 'True' or skip_usage_doc == 'TRUE' or skip_usage_doc == '1' else False
