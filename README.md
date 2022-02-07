@@ -86,3 +86,11 @@ Author 雷学委
 
 For this support, t2g uses [pilmoji](https://pypi.org/project/pilmoji) to handle emoji
 
+- support user to provider a folder as input, t2g will collect list  of  text file(*.txt) first
+
+If there is not text file, it will try to collect list of logs (*.log) file and render them as a n frame gif(n=the number of match files)
+
+- run 't2g-opt'  to check out the t2g environment variables to enable your own customization
+
+t2g-opt will print the env var, and you can set the default value.
+
